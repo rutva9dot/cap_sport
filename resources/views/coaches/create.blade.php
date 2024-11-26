@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', __('Coach'))
+@section('title', __('Add Coach'))
 
 @section('content')
 
@@ -46,7 +46,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item" aria-current="page"><a href="{{ route('coaches.index')}}">Coach List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Coach</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Coach</li>
                 </ol>
             </nav>
         </div>

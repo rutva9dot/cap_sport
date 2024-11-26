@@ -123,7 +123,7 @@
                                             </td>
                                             <td>
                                                 <div class="d-flex order-actions">
-                                                    <a href="javascript:;" data-size="md" data-title="Edit Age & Level" class="ms-2"
+                                                    <a href="javascript:;" data-size="md" data-title="Edit Lesson Program" class="ms-2"
                                                         data-url="{{ route('lesson-program.edit', $lesson_p->id) }}" style="color:blue"
                                                         data-ajax-popup="true" data-toggle="modal" data-target="#exampleModal">
                                                         <i class="bx bx-edit"></i>

@@ -71,7 +71,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex order-actions">
-                                            <a href="javascript:;" data-size="md" data-title="Edit Venue" class="ms-2" data-url="{{ route('location.edit', $v->id) }}" style="color:blue" data-ajax-popup="true" data-toggle="modal" data-target="#exampleModal">
+                                            <a href="javascript:;" data-size="md" data-title="Edit Location" class="ms-2" data-url="{{ route('location.edit', $v->id) }}" style="color:blue" data-ajax-popup="true" data-toggle="modal" data-target="#exampleModal">
                                                 <i class="bx bx-edit"></i>
                                             </a>
 

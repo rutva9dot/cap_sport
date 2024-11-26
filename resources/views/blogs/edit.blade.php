@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', __('Blog'))
+@section('title', __('Edit Blog'))
 
 @section('content')
 
@@ -48,7 +48,7 @@
                     </li>
                     <li class="breadcrumb-item" aria-current="page"><a href="{{ route('blogs.index')}}">Blog
                             List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Blog</li>
                 </ol>
             </nav>
         </div>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', __('About Us'))
+@section('title', __('Add About Us'))
 
 @section('content')
 
@@ -48,7 +48,7 @@
                     </li>
                     <li class="breadcrumb-item" aria-current="page"><a href="{{ route('about-us.index')}}">About Us
                             List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">About Us</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add About Us</li>
                 </ol>
             </nav>
         </div>
