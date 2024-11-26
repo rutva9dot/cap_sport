@@ -15,10 +15,23 @@ class ContactUs extends Model
     protected $fillable = [
         'id',
         'name',
-        'designation',
-        'country',
-        'about',
-        'certification',
-        'image',
+        'email',
+        'contact_no',
+        'age_level',
+        'lesson_program',
+        'location',
+        'massage',
     ];
+
+    public function ageLevel() {
+        return $this->belongsTo(AgeLevel::class, 'age_level');
+    }
+
+    public function lessonProgram() {
+        return $this->belongsTo(LessonProgram::class, 'lesson_program');
+    }
+
+    public function location() {
+        return $this->belongsTo(OurLocation::class, 'location');
+    }
 }

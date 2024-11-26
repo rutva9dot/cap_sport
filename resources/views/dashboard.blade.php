@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 
-@section('title', 'Admin :: ' . __('Dashboard'))
+@section('title', __('Dashboard'))
 
 @section('content')
 

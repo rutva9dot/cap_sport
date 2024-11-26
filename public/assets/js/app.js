@@ -42,8 +42,8 @@ $(function() {
 		$(".switcher-wrapper").toggleClass("switcher-toggled")
 	}), $(".close-switcher").on("click", function() {
 		$(".switcher-wrapper").removeClass("switcher-toggled")
-	}), 
-	
+	}),
+
 	$("#lightmode").on("click", function() {
 		$("html").attr("class", "light-theme")
 	}),
@@ -58,8 +58,8 @@ $(function() {
 
 	$("#minimaltheme").on("click", function() {
 		$("html").attr("class", "minimal-theme")
-	}), 
-	
+	}),
+
 	$("#headercolor1").on("click", function() {
 		$("html").addClass("color-header headercolor1"), $("html").removeClass("headercolor2 headercolor3 headercolor4 headercolor5 headercolor6 headercolor7 headercolor8")
 	}), $("#headercolor2").on("click", function() {
@@ -80,7 +80,7 @@ $(function() {
 
 
 
-   // sidebar colors 
+   // sidebar colors
 
 
     $('#sidebarcolor1').click(theme1);
@@ -107,11 +107,11 @@ $(function() {
     function theme4() {
       $('html').attr('class', 'color-sidebar sidebarcolor4');
     }
-	
+
 	function theme5() {
       $('html').attr('class', 'color-sidebar sidebarcolor5');
     }
-	
+
 	function theme6() {
       $('html').attr('class', 'color-sidebar sidebarcolor6');
     }
@@ -124,7 +124,31 @@ $(function() {
       $('html').attr('class', 'color-sidebar sidebarcolor8');
     }
 
-
+    $(document).on('click', 'a[data-ajax-popup="true"]', function() {
+        var title1 = $(this).data("title");
+        var title2 = $(this).data("bs-original-title");
+        var title = (title1 != undefined) ? title1 : title2;
+        var size = ($(this).data('size') == '') ? 'md' : $(this).data('size');
+        var url = $(this).data('url');
+        $("#commonModal .modal-title").html(title);
+        $("#commonModal .modal-dialog").addClass('modal-' + size);
+        $.ajax({
+            url: url,
+            success: function(data) {
+                $('#commonModal .body').html(data);
+                $("#commonModal").modal('show');
+                // daterange_set();
+                // taskCheckbox();
+                // common_bind("#commonModal");
+                // commonLoader();
+                // select2();
+            },
+            error: function(data) {
+                data = data.responseJSON;
+                show_toastr('Error', data.error, 'error')
+            }
+        });
+    });
 
 
 

@@ -1,7 +1,22 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AgeLevelController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CoachController;
+use App\Http\Controllers\CoachPlanController;
+use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\FAQsController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LessonProgramController;
+use App\Http\Controllers\OurLocationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProgramDetailsController;
+use App\Http\Controllers\ProgramsController;
+use App\Http\Controllers\VenuesController;
+use App\Http\Controllers\VenueDetailsController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +43,7 @@ Route::get('/cacheclear', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 // Route::get('/dashboard', function () {
@@ -42,5 +57,26 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::get('changepassword', [HomeController::class, 'ChangePassword'])->name('change-password');
+Route::post('updatepassword', [HomeController::class, 'UpdatePassword'])->name('updatepassword');
+Route::post('/verify-current-password', [HomeController::class, 'verifyCurrentPassword'])->name('verifyCurrentPassword');
+
+Route::resource('about-us', AboutUsController::class);
+Route::resource('blogs', BlogController::class);
+Route::resource('galleries', GalleryController::class);
+Route::resource('venues', VenuesController::class);
+Route::resource('venue-details', VenueDetailsController::class);
+Route::resource('coach-plan', CoachPlanController::class);
+Route::resource('coaches', CoachController::class);
+Route::resource('location', OurLocationController::class);
+Route::resource('programs', ProgramsController::class);
+Route::resource('program-details', ProgramDetailsController::class);
+Route::resource('age-level', AgeLevelController::class);
+Route::resource('lesson-program', LessonProgramController::class);
+Route::resource('faqs', FAQsController::class);
+Route::resource('contact-us', ContactUsController::class);
+Route::resource('banners', BannerController::class);
+Route::post('/gallery/delete-image', [GalleryController::class, 'deleteImage'])->name('gallery.deleteImage');
+
 
 require __DIR__.'/auth.php';

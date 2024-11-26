@@ -18,6 +18,7 @@ class GalleryController extends Controller
         if (Session::has('a_type')) {
             $galleries = Gallery::join('venues', 'galleries.venue_id', '=', 'venues.id')
                         ->select('galleries.*', 'venues.name as venue_name')
+                        ->orderBy('galleries.id', 'desc')
                         ->get();
 
             return view('gallery.index', compact('galleries'));
@@ -32,7 +33,12 @@ class GalleryController extends Controller
     public function create()
     {
         if (Session::has('a_type')) {
-            $venues = Venues::select('id', 'name')->get();
+            $storedVenueIds = Gallery::pluck('venue_id')->toArray();
+
+            // Fetch venues excluding those already stored
+            $venues = Venues::select('id', 'name')
+                ->whereNotIn('id', $storedVenueIds)
+                ->get();
 
             return view('gallery.create', compact('venues'));
         } else {
@@ -113,24 +119,86 @@ class GalleryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Gallery $gallery)
+    public function edit($id)
     {
-        dd($gallery);
+        if (Session::has('a_type')) {
+            $gallery = Gallery::find($id);
+            if($gallery) {
+                $storedVenueIds = Gallery::where('id', '!=', $id)->pluck('venue_id')->toArray();
+
+                $venues = Venues::select('id', 'name')
+                    ->whereNotIn('id', $storedVenueIds)
+                    ->orWhere('id', $gallery->venue_id)
+                    ->get();
+
+                return view('gallery.edit', compact('gallery', 'venues'));
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            return redirect()->route('login');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, $id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+
+        // Handle removed images
+        $removedImages = explode(',', $request->input('removed_images', ''));
+        foreach ($removedImages as $image) {
+            if ($image) {
+                $imagePath = public_path('gallery_image/' . $image);
+                if (File::exists($imagePath)) {
+                    // Delete each file from the filesystem
+                    File::delete($imagePath);
+                }
+
+            }
+        }
+
+        // Update images
+        $storedImages = array_diff(explode(',', $gallery->images), $removedImages);
+        $newImages = [];
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $path = UploadImageFolder('gallery_image/', $file);
+                $newImages[] = $path;
+            }
+        }
+
+        $gallery->images = implode(',', array_merge($storedImages, $newImages));
+        $gallery->venue_id = $request->input('venue_id');
+        $gallery->save();
+
+        return redirect()->route('galleries.index')->with('success', 'Gallery updated successfully');
+
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Gallery $gallery)
+    public function destroy($id)
     {
-        //
+        $gallery = Gallery::find($id);
+        if ($gallery) {
+            $images = $gallery->images;
+
+            foreach ($images as $image) {
+                $imagePath = public_path('gallery_image/' . $image); // Construct the full image path
+                if (File::exists($imagePath)) {
+                    // Delete each file from the filesystem
+                    File::delete($imagePath);
+                }
+            }
+
+            $gallery->delete();
+            return response()->json(['status' => true, 'message' => 'Data deleted successfully']);
+        }
+
+        return response()->json(['status' => false, 'message' => 'Gallery Not Found']);
     }
 }

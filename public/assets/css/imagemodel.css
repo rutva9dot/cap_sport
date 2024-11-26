@@ -1,0 +1,46 @@
+
+img {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1055;
+    overflow: auto;
+
+    /* Semi-transparent background */
+}
+
+.modal-content {
+    position: absolute;
+    border-radius: 5px;
+}
+
+#myModal .close {
+    color: #aaa;
+    float: right;
+    margin-right: 50px;
+    margin-top: 25px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal.open {
+    display: block;
+    /* Show the modal when it has the 'open' class */
+}
+
+#myModal .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    opacity: 1;
+}
+

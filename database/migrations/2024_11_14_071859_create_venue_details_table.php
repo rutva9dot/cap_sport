@@ -14,6 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('venue_details')) {
             Schema::create('venue_details', function (Blueprint $table) {
                 $table->id();
+                $table->integer('venue_id')->nullable();
                 $table->string('title')->nullable();
                 $table->longText('content')->nullable();
                 $table->string('image')->nullable();

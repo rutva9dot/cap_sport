@@ -14,8 +14,9 @@ return new class extends Migration
         if (!Schema::hasTable('program_details')) {
             Schema::create('program_details', function (Blueprint $table) {
                 $table->id();
+                $table->integer('program_id')->nullable();
                 $table->string('title')->nullable();
-                $table->longText('description')->nullable();
+                $table->longText('content')->nullable();
                 $table->string('image')->nullable();
                 $table->softDeletes();
                 $table->timestamps();

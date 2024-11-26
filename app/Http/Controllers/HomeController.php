@@ -16,7 +16,12 @@ class HomeController extends Controller
         }
     }
 
-    public function ChangePassword(Request $request)
+    public function ChangePassword()
+    {
+        return view('layouts.changepassword');
+    }
+
+    public function UpdatePassword(Request $request)
     {
         if (Session::has('a_type')) {
             $request->validate([
@@ -31,11 +36,23 @@ class HomeController extends Controller
                 }
                 $admin->password = Hash::make($request->new_password);
                 $admin->save();
-                return redirect()->back()->with('success', 'Password successfully');
+                return redirect()->back()->with('success', 'Password set successfully!');
             }
             return back()->with('error', 'Something went wrong, please enter proper data!');
         } else {
             return redirect()->route('login');
+        }
+    }
+
+    public function verifyCurrentPassword(Request $request)
+    {
+        $currentPassword = $request->current_password;
+        $user = User::where('id', $request->id)->first();
+
+        if (Hash::check($currentPassword, $user->password)) {
+            return response()->json(['valid' => true]);
+        } else {
+            return response()->json(['valid' => false]);
         }
     }
 }

@@ -15,14 +15,13 @@
 
 <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datepicker/bootstrap-datepicker.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/sweetalert/sweetalert2.all.min.js') }}"></script>
-<script src="{{ asset('assets\plugins\summernote\dist\summernote.js') }}"></script>
+<script src="{{ asset('assets/js/summernote/summernote-lite.min.js')}}"></script>
+<script src="{{ asset('assets/js/summernote/summernote.js')}}"></script>
 
 <script>
     $(function() {
-            $(".knob").knob();
-        });
+        $(".knob").knob();
+    });
 </script>
 <script src="{{ asset('assets/js/index.js')}}"></script>
 <!--app JS-->

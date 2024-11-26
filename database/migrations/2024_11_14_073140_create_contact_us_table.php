@@ -15,11 +15,12 @@ return new class extends Migration
             Schema::create('contact_us', function (Blueprint $table) {
                 $table->id();
                 $table->string('name')->nullable();
-                $table->string('designation')->nullable();
-                $table->string('country')->nullable();
-                $table->longText('about')->nullable();
-                $table->string('certification')->nullable();
-                $table->string('image')->nullable();
+                $table->string('email')->nullable();
+                $table->string('contact_no')->nullable();
+                $table->integer('age_level')->nullable();
+                $table->integer('lesson_program')->nullable();
+                $table->integer('location')->nullable();
+                $table->string('massage')->nullable();
                 $table->softDeletes();
                 $table->timestamps();
             });

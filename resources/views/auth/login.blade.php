@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
+    <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+	<link rel="icon" href="{{ asset('assets/images/favicon-16x16.png') }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
@@ -30,12 +31,20 @@
             <div class="container-fluid">
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                     <div class="col mx-auto">
-                        <div class="mb-4 text-center">
-                            <img src="assets/images/logo-img.png" width="180" alt="" />
+                        <div class="top text-center mb-4">
+                            <img src="{{ asset('assets/images/logo-img.png') }}" class="logo-icon" alt="logo icon">
+                            <h3 style="color: #525558">Cap Sport Academy</h3>
                         </div>
                         <div class="card">
                             <div class="card-body">
                                 <div class="border p-4 rounded">
+
+                                    <div class="row ResponseMessage">
+                                        <div class="col-lg-12">
+                                            @include('flash')
+                                        </div>
+                                    </div>
+
                                     <div class="form-body">
                                         <form class="row g-3" action="{{ route('login') }}" id="login-form-otp" method="post">
                                         @csrf
@@ -99,36 +108,6 @@
 		});
     </script>
 
-    <script>
-        $(document).ready(function () {
-            $('#login-form-otp').submit(function() {
-                $('#login').prop('disabled', true);
-            });
-
-            $('#login-form-otp').submit(function(event) {
-                $(".custom-wrapper").removeClass('d-none');
-                event.preventDefault();
-                $('#login').prop('disabled', true);
-
-                $.ajax({
-                    url: $(this).attr('action'),
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        if (response.success == true) {
-                            window.location.href = response.redirect_url;
-                        } else {
-                            $('#login').prop('disabled', false);
-                        }
-                        $(".custom-wrapper").addClass('d-none');
-                    },
-                    error: function(response) {
-                        $('#login').prop('disabled', false);
-                    }
-                });
-            });
-        });
-    </script>
     <!--app JS-->
     <script src="{{ asset('assets/js/app.js')}}"></script>
 </body>
