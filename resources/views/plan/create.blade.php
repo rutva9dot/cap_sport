@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', __('Plan'))
+@section('title', __('Add Plan'))
 @section('content')
 
 <style>
@@ -19,7 +19,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard') }}"><i class="bx bx-home-alt"></i></a></li>
                     <li class="breadcrumb-item" aria-current="page"><a href="{{ route('coach-plan.index')}}">Plan List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Plan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Plan</li>
                 </ol>
             </nav>
         </div>

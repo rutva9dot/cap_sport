@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', __('Gallery'))
+@section('title', __('Edit Gallery'))
 
 @section('content')
 
@@ -51,7 +51,7 @@
                     </li>
                     <li class="breadcrumb-item" aria-current="page"><a href="{{ route('galleries.index')}}">Gallery
                             List</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Gallery</li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Gallery</li>
                 </ol>
             </nav>
         </div>

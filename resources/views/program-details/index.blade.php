@@ -26,7 +26,7 @@
     <div class="card">
         <div class="card-body">
             <div class="d-flex align-items-center">
-                <h6 class="mb-0">Program List</h6>
+                <h6 class="mb-0">Program Details List</h6>
                 <div class="font-20 ms-auto">
                     <a href="{{ route('program-details.create')}}" class="btn btn-primary">
                     <i class="bx bx-plus"></i>Add New

@@ -116,7 +116,7 @@
             </a>
         </li>
 
-        <li class="{{ request()->is('change-password') ? 'mm-active' : '' }}">
+        {{-- <li class="{{ request()->is('change-password') ? 'mm-active' : '' }}">
             <a href="{{ route('change-password') }}" class="">
                 <div class="parent-icon"><i class='bx bx-lock-alt'></i></div>
                 <div class="menu-title">Change Password</div>
@@ -136,11 +136,11 @@
             <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-        </li>
+        </li> --}}
     </ul>
 </div>
 
-@push('after-scripts')
+{{-- @push('after-scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
@@ -162,4 +162,4 @@
             });
         }
     </script>
-@endpush
+@endpush --}}
