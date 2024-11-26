@@ -15,5 +15,6 @@ class Programs extends Model
     protected $fillable = [
         'id',
         'name',
+        'slug',
     ];
 }

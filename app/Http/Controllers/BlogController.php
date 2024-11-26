@@ -16,7 +16,7 @@ class BlogController extends Controller
     public function index()
     {
         if (Session::has('a_type')) {
-            $blogs = Blog::all();
+            $blogs = Blog::orderBy('id', 'desc')->get();
             return view('blogs.index', compact('blogs'));
         } else {
             return redirect('login');

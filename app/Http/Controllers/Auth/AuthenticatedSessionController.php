@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -25,21 +25,21 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(Request $request)
     {
-        // $request->authenticate();
-
-        // $request->session()->regenerate();
-
+        $password = $request->input('password');
         $admin = User::where('email', $request->email)->first();
-        if ($admin) {
+
+        if ($admin && Hash::check($password, $admin->password)) {
             session()->put('admin_name', $admin->name);
             session()->put('admin_id', $admin->id);
             session()->put('login_id', $admin->id);
             session()->put('admin_email', $admin->email);
             session()->put('a_type', 1);
 
-            return response()->json(['success' => true, 'redirect_url' => route('dashboard')]);
+            // return response()->json(['success' => true, 'redirect_url' => route('banners.index')]);
+            return redirect()->route('banners.index');
         } else {
-            return redirect()->back()->with('error_msg', 'Invalid email or password');
+            // return back()->with('error', 'Invalid email or password');
+            return redirect()->back()->with('error', 'Invalid email or password');
         }
     }
 

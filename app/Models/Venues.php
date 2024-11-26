@@ -15,6 +15,7 @@ class Venues extends Model
     protected $fillable = [
         'id',
         'name',
+        'address',
         'slug',
     ];
 }

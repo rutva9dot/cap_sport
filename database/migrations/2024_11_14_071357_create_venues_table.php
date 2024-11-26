@@ -15,6 +15,7 @@ return new class extends Migration
             Schema::create('venues', function (Blueprint $table) {
                 $table->id();
                 $table->longText('name')->nullable();
+                $table->longText('address')->nullable();
                 $table->longText('slug')->nullable();
                 $table->softDeletes();
                 $table->timestamps();

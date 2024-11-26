@@ -16,7 +16,7 @@ return new class extends Migration
                 $table->id();
                 $table->string('name')->nullable();
                 $table->string('designation')->nullable();
-                $table->string('country')->nullable();
+                $table->integer('country_id')->nullable();
                 $table->longText('about')->nullable();
                 $table->string('certification')->nullable();
                 $table->string('image')->nullable();

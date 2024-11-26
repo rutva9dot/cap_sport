@@ -16,7 +16,7 @@ class AboutUsController extends Controller
     public function index()
     {
         if (Session::has('a_type')) {
-            $about_us = AboutUs::all();
+            $about_us = AboutUs::orderBy('id', 'desc')->get();
             return view('about-us.index', compact('about_us'));
         } else {
             return redirect('login');
@@ -30,6 +30,8 @@ class AboutUsController extends Controller
     {
         if (Session::has('a_type')) {
             return view('about-us.create');
+        } else {
+            return redirect('login');
         }
     }
 
@@ -94,9 +96,15 @@ class AboutUsController extends Controller
      */
     public function edit(string $id)
     {
-        $aboutUs = AboutUs::find($id);
-        if($aboutUs) {
-            return view('about-us.edit', compact('aboutUs'));
+        if (Session::has('a_type')) {
+            $aboutUs = AboutUs::find($id);
+            if($aboutUs) {
+                return view('about-us.edit', compact('aboutUs'));
+            } else {
+                return redirect()->back();
+            }
+        } else {
+            return redirect('login');
         }
     }
 
@@ -116,7 +124,7 @@ class AboutUsController extends Controller
         }
         $about_us->save();
 
-        return redirect()->action([AboutUsController::class, 'index'])->with('success', 'Data saved successfully');
+        return redirect()->action([AboutUsController::class, 'index'])->with('success', 'Data updated successfully');
     }
 
     /**

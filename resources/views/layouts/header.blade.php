@@ -176,7 +176,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-1.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Daisy Anderson <span class="msg-time float-end">5 sec
@@ -188,7 +188,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-2.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Althea Cabardo <span class="msg-time float-end">14
@@ -200,7 +200,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-3.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Oscar Garner <span class="msg-time float-end">8 min
@@ -212,7 +212,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-4.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Katherine Pechon <span class="msg-time float-end">15
@@ -224,7 +224,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-5.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Amelia Doe <span class="msg-time float-end">22 min
@@ -236,7 +236,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-6.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Cristina Jhons <span class="msg-time float-end">2 hrs
@@ -248,7 +248,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-7.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">James Caviness <span class="msg-time float-end">4 hrs
@@ -260,7 +260,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-8.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Peter Costanzo <span class="msg-time float-end">6 hrs
@@ -272,7 +272,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-9.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">David Buckley <span class="msg-time float-end">2 hrs
@@ -284,7 +284,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-10.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Thomas Wheeler <span class="msg-time float-end">2 days
@@ -296,7 +296,7 @@
                             <a class="dropdown-item" href="javascript:;">
                                 <div class="d-flex align-items-center">
                                     <div class="user-online">
-                                        <img src="assets/images/avatars/avatar-11.png" class="msg-avatar" alt="user avatar">
+                                        <img src="{{ asset('assets/images/preview_image.png') }}" class="msg-avatar" alt="user avatar">
                                     </div>
                                     <div class="flex-grow-1">
                                         <h6 class="msg-name">Johnny Seitz <span class="msg-time float-end">5 days
@@ -327,9 +327,39 @@
                 <li>
                     <div class="dropdown-divider mb-0"></div>
                 </li>
-                <li><a class="dropdown-item" href="javascript:;"><i class='bx bx-log-out-circle'></i><span>Logout</span></a>
+                <li class="">
+                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); confirmLogout(event);"
+                        aria-expanded="false" class="sidebar-link">
+                        <i class='bx bx-log-out-circle'></i>
+                        <span class="nav-text">Logout<span>
+                    </a>
+                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </li>
             </ul>
         </div>
     </nav>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+    function confirmLogout() {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You will be logged out.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, logout!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('logout-form').submit();
+            }
+        });
+    }
+</script>
